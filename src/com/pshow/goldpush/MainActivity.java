@@ -83,7 +83,23 @@ public class MainActivity extends Activity {
 				        Log.i("0", "button onClick");  
 				        if(mytext != null){
 				        	if(mytext.length() == 11){
-				        		
+				        		String str = "设备id:";
+				        		str +=		Myapp.getInstance().name;
+				        		str += "\n";
+				        		str += "手机号:";
+				        		str += mytext.getText();
+				        		new AlertDialog.Builder(getActivity()) 
+				                .setMessage(str)  
+				                .setPositiveButton("确定",  
+				                        new DialogInterface.OnClickListener() {  
+				                            @Override  
+				                            public void onClick(DialogInterface dialog,  
+				                                    int which) {  
+				                                // TODO Auto-generated method stub  
+				  
+				                            }  
+				                        }).setNegativeButton("取消", null).create()  
+				                .show();
 				        	}else{
 				        		new AlertDialog.Builder(getActivity()) 
 				                .setTitle("电话号码长度不符")  
