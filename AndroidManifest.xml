@@ -108,7 +108,6 @@ android:authorities="downloads.com.pshow.goldpush"/>
 <uses-permission android:name="android.permission.VIBRATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="getui.permission.GetuiService" />
-
 <!--自定义权限-->
 <permission
 android:name="getui.permission.GetuiService"

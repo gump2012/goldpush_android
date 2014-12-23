@@ -4,7 +4,7 @@ import android.app.Application;
 
 public class Myapp extends Application{  
     public String name;  
-  
+    public static final String domain = "http://josnotice.nat123.net/jos/";
     public String getName() {  
         return name;  
     }  

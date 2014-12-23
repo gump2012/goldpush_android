@@ -1,5 +1,22 @@
 package com.pshow.goldpush;
 
+import java.io.IOException;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.protocol.HTTP;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,7 +25,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.igexin.sdk.PushManager;
+
 import android.util.Log; 
 import android.widget.Button;
 import android.app.AlertDialog;
@@ -80,23 +99,61 @@ public class MainActivity extends Activity {
 				        Log.i("0", "button onClick");  
 				        if(mytext != null){
 				        	if(mytext.length() == 11){
-				        		String str = "设备id:";
-				        		str +=		Myapp.getInstance().name;
-				        		str += "\n";
-				        		str += "手机号:";
-				        		str += mytext.getText();
-				        		new AlertDialog.Builder(getActivity()) 
-				                .setMessage(str)  
-				                .setPositiveButton("确定",  
-				                        new DialogInterface.OnClickListener() {  
-				                            @Override  
-				                            public void onClick(DialogInterface dialog,  
-				                                    int which) {  
-				                                // TODO Auto-generated method stub  
-				  
-				                            }  
-				                        }).setNegativeButton("取消", null).create()  
-				                .show();
+				        		
+				        		if(Myapp.getInstance().name.length() > 0){
+				        			String strUrl = Myapp.getInstance().domain;
+					        		strUrl += "Users/userRegistration";
+					        		strUrl += "?userid=";
+					        		strUrl += Myapp.getInstance().name;
+					        		strUrl += "&phoneNum=";
+					        		strUrl += mytext.getText();
+					        		strUrl += "&deviceType=android";
+					        		
+					        		URL url = null;
+					        		try{
+					        			String result="";
+					                    
+					                    HttpGet httpGet=new HttpGet(strUrl);
+					                    //取得HTTP response
+					                    HttpResponse response=new DefaultHttpClient().execute(httpGet);
+					                    //若状态码为200
+					                    if(response.getStatusLine().getStatusCode()==200){
+					                            //取出应答字符串
+					                            HttpEntity entity=response.getEntity();
+					                            result=EntityUtils.toString(entity, HTTP.UTF_8);
+					                    }
+					        			
+//					        			new AlertDialog.Builder(getActivity()) 
+//						                .setMessage(result)  
+//						                .setPositiveButton("确定",  
+//						                        new DialogInterface.OnClickListener() {  
+//						                            @Override  
+//						                            public void onClick(DialogInterface dialog,  
+//						                                    int which) {  
+//						                                // TODO Auto-generated method stub  
+//						  
+//						                            }  
+//						                        }).setNegativeButton("取消", null).create()  
+//						                .show();
+					        		}catch(Exception e){
+					        			e.printStackTrace();
+					        		}
+				        		}
+				        		else{
+					        		new AlertDialog.Builder(getActivity()) 
+					                .setMessage("没有设备id")  
+					                .setPositiveButton("确定",  
+					                        new DialogInterface.OnClickListener() {  
+					                            @Override  
+					                            public void onClick(DialogInterface dialog,  
+					                                    int which) {  
+					                                // TODO Auto-generated method stub  
+					  
+					                            }  
+					                        }).setNegativeButton("取消", null).create()  
+					                .show();
+				        		}
+				        		
 				        	}else{
 				        		new AlertDialog.Builder(getActivity()) 
 				                .setTitle("电话号码长度不符")  
