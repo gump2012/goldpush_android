@@ -57,8 +57,8 @@ public class MainActivity extends Activity {
 		}
 		//PushManager.getInstance().initialize(this.getApplicationContext());
 		//strcon = PushManager.getInstance().getClientid(this);
-		JPushInterface.setDebugMode(true);
-        JPushInterface.init(this);
+		//JPushInterface.setDebugMode(true);
+        //JPushInterface.init(this);
 		Log.i("0",strcon);
 		Myapp.getInstance().name = strcon;
 	}
