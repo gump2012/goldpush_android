@@ -36,7 +36,7 @@ import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.EditText;
-import cn.jpush.android.api.JPushInterface;
+
 
 public class MainActivity extends Activity {
 	String strcon;
@@ -55,10 +55,8 @@ public class MainActivity extends Activity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, bFrag).commit();
 		}
-		//PushManager.getInstance().initialize(this.getApplicationContext());
-		//strcon = PushManager.getInstance().getClientid(this);
-		//JPushInterface.setDebugMode(true);
-        //JPushInterface.init(this);
+		PushManager.getInstance().initialize(this.getApplicationContext());
+		strcon = PushManager.getInstance().getClientid(this);
 		Log.i("0",strcon);
 		Myapp.getInstance().name = strcon;
 	}

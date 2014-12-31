@@ -12,6 +12,5 @@ public final class Manifest {
         /** 自定义权限
          */
         public static final String GetuiService="getui.permission.GetuiService";
-        public static final String JPUSH_MESSAGE="com.pshow.goldpush.permission.JPUSH_MESSAGE";
     }
 }
