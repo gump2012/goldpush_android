@@ -1,4 +1,4 @@
-package com.pshow.goldpush;
+package www.pshow.goldpush;
 
 import android.app.Application;  
 

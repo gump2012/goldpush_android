@@ -1,4 +1,4 @@
-package com.pshow.goldpush;
+package www.pshow.goldpush;
 
 import java.io.IOException;
 
@@ -9,15 +9,10 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.protocol.HTTP;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.conn.params.ConnManagerParams;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import www.pshow.goldpush.R;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -28,15 +23,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.igexin.sdk.PushManager;
-
 import android.util.Log; 
 import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.EditText;
-
+import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends Activity {
 	String strcon;
@@ -55,10 +47,11 @@ public class MainActivity extends Activity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, bFrag).commit();
 		}
-		PushManager.getInstance().initialize(this.getApplicationContext());
-		strcon = PushManager.getInstance().getClientid(this);
-		Log.i("0",strcon);
-		Myapp.getInstance().name = strcon;
+		
+		JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this); 
+		//Log.i("0",strcon);
+		//Myapp.getInstance().name = strcon;
 	}
 
 	@Override
@@ -110,7 +103,13 @@ public class MainActivity extends Activity {
 				        if(mytext != null){
 				        	if(mytext.length() == 11){
 				        		
-				        		if(Myapp.getInstance().name.length() > 0){
+				        		if(Myapp.getInstance().name == null){
+				        			Myapp.getInstance().name = JPushInterface.getRegistrationID(getActivity().getApplicationContext());
+				        			Log.i("0",Myapp.getInstance().name);
+				        		}
+				        		
+				        		
+				        		if(Myapp.getInstance().name != null && Myapp.getInstance().name.length() > 0){
 				        			String strUrl = Myapp.getInstance().domain;
 					        		strUrl += "Users/userRegistration";
 					        		strUrl += "?userid=";
