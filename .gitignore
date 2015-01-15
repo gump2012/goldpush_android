@@ -28,3 +28,5 @@ bin/resources.ap_
 bin/jarlist.cache
 
 bin/dexedLibs/jpush-sdk-release1.7.1-6dd327792c2e21715ad0a574b3ff2c4b.jar
+
+bin/
