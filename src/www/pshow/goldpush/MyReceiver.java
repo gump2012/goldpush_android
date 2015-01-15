@@ -80,10 +80,10 @@ public class MyReceiver extends BroadcastReceiver {
 	//send msg to MainActivity
 	private void processCustomMessage(Context context, Bundle bundle) {
 		
-//			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
-//			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-//			Intent msgIntent = new Intent(MainActivity.MESSAGE_RECEIVED_ACTION);
-//			msgIntent.putExtra(MainActivity.KEY_MESSAGE, message);
+			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
+			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+			Intent msgIntent = new Intent(MainActivity.MESSAGE_RECEIVED_ACTION);
+			msgIntent.putExtra(MainActivity.KEY_MESSAGE, message);
 //			if (!ExampleUtil.isEmpty(extras)) {
 //				try {
 //					JSONObject extraJson = new JSONObject(extras);
@@ -95,6 +95,6 @@ public class MyReceiver extends BroadcastReceiver {
 //				}
 //
 //			}
-//			context.sendBroadcast(msgIntent);
+			context.sendBroadcast(msgIntent);
 	}
 }

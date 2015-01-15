@@ -6,4 +6,11 @@
     tools:context="www.pshow.goldpush.MainActivity"
     tools:ignore="MergeRootFrame" 
  >
+ 
+<EditText
+            android:id="@+id/msg_rec"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dip"
+            android:visibility="invisible" /> 
 </FrameLayout>
