@@ -56,7 +56,7 @@ public class MainActivity extends InstrumentedActivity {
 		
 		msgText = (EditText)findViewById(R.id.msg_rec);
 		
-		JPushInterface.setDebugMode(true); 	// ���ÿ�����־,����ʱ��ر���־
+		JPushInterface.setDebugMode(true); 	// …Ë÷√ø™∆Ù»’÷æ,∑¢≤º ±«Îπÿ±’»’÷æ
         JPushInterface.init(this); 
 		//Log.i("0",strcon);
 		//Myapp.getInstance().name = strcon;
@@ -126,23 +126,23 @@ public class MainActivity extends InstrumentedActivity {
 					        		strUrl += mytext.getText();
 					        		strUrl += "&deviceType=android";
 					        		
-					        		HttpClient httpClient = new DefaultHttpClient(); // �½�HttpClient����  
+					        		HttpClient httpClient = new DefaultHttpClient(); // –¬Ω®HttpClient∂‘œÛ  
 					                HttpConnectionParams  
-					                        .setConnectionTimeout(httpClient.getParams(), 10000); // �������ӳ�ʱ  
-					                HttpConnectionParams.setSoTimeout(httpClient.getParams(), 10000); // �������ݶ�ȡʱ�䳬ʱ  
-					                ConnManagerParams.setTimeout(httpClient.getParams(), 10000); // ���ô����ӳ���ȡ���ӳ�ʱ  
+					                        .setConnectionTimeout(httpClient.getParams(), 10000); // …Ë÷√¡¨Ω”≥¨ ±  
+					                HttpConnectionParams.setSoTimeout(httpClient.getParams(), 10000); // …Ë÷√ ˝æ›∂¡»° ±º‰≥¨ ±  
+					                ConnManagerParams.setTimeout(httpClient.getParams(), 10000); // …Ë÷√¥”¡¨Ω”≥ÿ÷–»°¡¨Ω”≥¨ ±  
 					          
-					                HttpGet httpget = new HttpGet(strUrl); // ��ȡ����  
+					                HttpGet httpget = new HttpGet(strUrl); // ªÒ»°«Î«Û  
 					          
 					                try {  
-					                    HttpResponse response = httpClient.execute(httpget); // ִ�����󣬻�ȡ��Ӧ���  
-					                    if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) { // ��Ӧͨ��  
+					                    HttpResponse response = httpClient.execute(httpget); // ÷¥––«Î«Û£¨ªÒ»°œÏ”¶Ω·π˚  
+					                    if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) { // œÏ”¶Õ®π˝  
 					                        String result = EntityUtils.toString(response.getEntity(),  
 					                                "UTF-8");  
 					                        if(result.equals("success")){
 					                        	new AlertDialog.Builder(getActivity()) 
-								                .setMessage("ע��ɹ�")  
-								                .setPositiveButton("ȷ��",  
+								                .setMessage("注册成功")  
+								                .setPositiveButton("确认",  
 								                        new DialogInterface.OnClickListener() {  
 								                            @Override  
 								                            public void onClick(DialogInterface dialog,  
@@ -150,12 +150,12 @@ public class MainActivity extends InstrumentedActivity {
 								                                // TODO Auto-generated method stub  
 								  
 								                            }  
-								                        }).setNegativeButton("ȡ��", null).create()  
+								                        }).create()  
 								                .show();
 					                        }else{
 					                        	new AlertDialog.Builder(getActivity()) 
-								                .setMessage("ע��ʧ��")  
-								                .setPositiveButton("ȷ��",  
+								                .setMessage("注册失败")  
+								                .setPositiveButton("确认",  
 								                        new DialogInterface.OnClickListener() {  
 								                            @Override  
 								                            public void onClick(DialogInterface dialog,  
@@ -163,13 +163,13 @@ public class MainActivity extends InstrumentedActivity {
 								                                // TODO Auto-generated method stub  
 								  
 								                            }  
-								                        }).setNegativeButton("ȡ��", null).create()  
+								                        }).create()  
 								                .show();
 					                        }
 					                    } else {  
 					                    	new AlertDialog.Builder(getActivity()) 
-							                .setMessage("ע��ʧ��")  
-							                .setPositiveButton("ȷ��",  
+							                .setMessage("网络有问题")  
+							                .setPositiveButton("确认",  
 							                        new DialogInterface.OnClickListener() {  
 							                            @Override  
 							                            public void onClick(DialogInterface dialog,  
@@ -177,7 +177,7 @@ public class MainActivity extends InstrumentedActivity {
 							                                // TODO Auto-generated method stub  
 							  
 							                            }  
-							                        }).setNegativeButton("ȡ��", null).create()  
+							                        }).create()  
 							                .show();  
 					                    }  
 					                } catch (ClientProtocolException e) {  
@@ -190,8 +190,8 @@ public class MainActivity extends InstrumentedActivity {
 				        		}
 				        		else{
 					        		new AlertDialog.Builder(getActivity()) 
-					                .setMessage("û���豸id")  
-					                .setPositiveButton("ȷ��",  
+					                .setMessage("√ª”–…Ë±∏id")  
+					                .setPositiveButton("»∑∂®",  
 					                        new DialogInterface.OnClickListener() {  
 					                            @Override  
 					                            public void onClick(DialogInterface dialog,  
@@ -199,14 +199,14 @@ public class MainActivity extends InstrumentedActivity {
 					                                // TODO Auto-generated method stub  
 					  
 					                            }  
-					                        }).setNegativeButton("ȡ��", null).create()  
+					                        }).setNegativeButton("»°œ˚", null).create()  
 					                .show();
 				        		}
 				        		
 				        	}else{
 				        		new AlertDialog.Builder(getActivity()) 
-				                .setTitle("�绰���볤�Ȳ���")  
-				                .setPositiveButton("ȷ��",  
+				                .setTitle("µÁª∞∫≈¬Î≥§∂»≤ª∑˚")  
+				                .setPositiveButton("»∑∂®",  
 				                        new DialogInterface.OnClickListener() {  
 				                            @Override  
 				                            public void onClick(DialogInterface dialog,  
@@ -214,7 +214,7 @@ public class MainActivity extends InstrumentedActivity {
 				                                // TODO Auto-generated method stub  
 				  
 				                            }  
-				                        }).setNegativeButton("ȡ��", null).create()  
+				                        }).setNegativeButton("»°œ˚", null).create()  
 				                .show();
 				        	}
 				        }
