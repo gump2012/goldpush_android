@@ -190,8 +190,8 @@ public class MainActivity extends InstrumentedActivity {
 				        		}
 				        		else{
 					        		new AlertDialog.Builder(getActivity()) 
-					                .setMessage("√ª”–…Ë±∏id")  
-					                .setPositiveButton("»∑∂®",  
+					                .setMessage("网络有问题,请检查网络")  
+					                .setPositiveButton("确认",  
 					                        new DialogInterface.OnClickListener() {  
 					                            @Override  
 					                            public void onClick(DialogInterface dialog,  
@@ -199,14 +199,14 @@ public class MainActivity extends InstrumentedActivity {
 					                                // TODO Auto-generated method stub  
 					  
 					                            }  
-					                        }).setNegativeButton("»°œ˚", null).create()  
+					                        }).create()  
 					                .show();
 				        		}
 				        		
 				        	}else{
 				        		new AlertDialog.Builder(getActivity()) 
-				                .setTitle("µÁª∞∫≈¬Î≥§∂»≤ª∑˚")  
-				                .setPositiveButton("»∑∂®",  
+				                .setTitle("请输入正确的手机号码")  
+				                .setPositiveButton("确认",  
 				                        new DialogInterface.OnClickListener() {  
 				                            @Override  
 				                            public void onClick(DialogInterface dialog,  
@@ -214,7 +214,7 @@ public class MainActivity extends InstrumentedActivity {
 				                                // TODO Auto-generated method stub  
 				  
 				                            }  
-				                        }).setNegativeButton("»°œ˚", null).create()  
+				                        }).create()  
 				                .show();
 				        	}
 				        }
